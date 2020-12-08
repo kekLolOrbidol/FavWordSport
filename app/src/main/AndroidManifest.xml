@@ -16,16 +16,23 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
         tools:targetApi="m">
-        <activity android:name=".SplashActivity"></activity>
-        <activity
-            android:name=".ui.MainActivity"
-            android:windowSoftInputMode="adjustResize">
+        <receiver android:name=".notification.AlarmNotificationReceiver" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.MainActivity"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
     <dist:module dist:instant="true" />
