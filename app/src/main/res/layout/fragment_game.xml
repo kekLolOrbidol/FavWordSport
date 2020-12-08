@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="feliperrm.com.wordscrambler.ui.game.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/rightAnswersLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/right_answers_this_session"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/wrongAnswersLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/wrong_answers_this_session"
+            android:textSize="17sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rightAnswersLabel" />
+
+        <TextView
+            android:id="@+id/rightAnswersTextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@{viewModel.rightAnswersSession.toString()}"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/rightAnswersLabel"
+            app:layout_constraintLeft_toRightOf="@+id/rightAnswersLabel"
+            app:layout_constraintTop_toTopOf="@id/rightAnswersLabel" />
+
+        <TextView
+            android:id="@+id/wrongAnswersTextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="@{viewModel.wrongAnswersSession.toString()}"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/wrongAnswersLabel"
+            app:layout_constraintLeft_toRightOf="@+id/wrongAnswersLabel"
+            app:layout_constraintTop_toTopOf="@id/wrongAnswersLabel" />
+
+        <TextView
+            android:id="@+id/scrambledWordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:text="@{viewModel.scrambledWordText}"
+            android:textSize="30sp"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{@plurals/time_elapsed(viewModel.timeElapsedWord, viewModel.timeElapsedWord)}"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrambledWordTextView" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/confirmAnswerButton">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="12dp"
+                android:hint="@string/type_unscrambled_word"
+                android:lines="1"
+                android:maxLength="@{viewModel.scrambledWordText.length()}"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@={viewModel.currentText}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/confirmAnswerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/round_button_bg"
+            android:onClick="@{() -> viewModel.playWord()}"
+            android:text="@string/confirm"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            bind:shrinkTouchDuration="@{300L}"
+            bind:shrinkTouchEndSize="@{0.95F}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

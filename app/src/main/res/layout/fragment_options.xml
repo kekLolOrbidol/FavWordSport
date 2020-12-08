@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    tools:context=".ui.menu.StatisticsFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/choose_min_max_word_size"
+        android:textSize="18sp" />
+
+    <com.appyvet.materialrangebar.RangeBar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rangeBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:mrb_connectingLineColor="@color/colorPrimary"
+        app:mrb_pinColor="@color/colorAccent"
+        app:mrb_pinMaxFont="15sp"
+        app:mrb_pinMinFont="12sp"
+        app:mrb_pinRadius="14dp"
+        app:mrb_pinTextColor="@color/white"
+        app:mrb_rangeBar="true"
+        app:mrb_rangeBarPaddingBottom="30dp"
+        app:mrb_rangeBar_rounded="true"
+        app:mrb_selectorBoundaryColor="@color/colorPrimary"
+        app:mrb_selectorBoundarySize="2dp"
+        app:mrb_selectorColor="@color/colorPrimary"
+        app:mrb_selectorSize="10dp"
+        app:mrb_temporaryPins="true"
+        app:mrb_tickBottomLabels="@array/ticks_labels"
+        app:mrb_tickDefaultLabel="0"
+        app:mrb_tickEnd="11"
+        app:mrb_tickHeight="4dp"
+        app:mrb_tickInterval="1"
+        app:mrb_tickLabelColor="@color/colorAccent"
+        app:mrb_tickLabelSelectedColor="@color/colorAccent"
+        app:mrb_tickLabelSize="4sp"
+        app:mrb_tickStart="2" />
+
+</LinearLayout>

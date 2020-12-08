@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="feliperrm.com.wordscrambler.ui.menu.MenuViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#051463"
+        android:animateLayoutChanges="true"
+        tools:context=".ui.menu.StatisticsFragment">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:shadowColor="@color/black_shadow_color"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="4"
+            android:text="@string/app_name"
+            android:textColor="#95130A"
+            android:textSize="36sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:src="@drawable/icon1"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.wordsAvailable &lt;= 0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/playGameButton"
+            android:layout_width="@dimen/main_menu_button_width"
+            android:layout_height="@dimen/main_menu_button_height"
+            android:background="@drawable/round_button_bg"
+            android:text="@string/play_game"
+            android:textColor="#95130A"
+            android:visibility="@{viewModel.wordsAvailable &gt; 0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:shrinkTouchDuration="@{300L}"
+            bind:shrinkTouchEndSize="@{0.95F}" />
+
+        <Button
+            android:id="@+id/statisticsButton"
+            android:layout_width="@dimen/main_menu_button_width"
+            android:layout_height="@dimen/main_menu_button_height"
+            android:layout_marginTop="@dimen/main_menu_button_margin"
+            android:background="@drawable/round_button_bg"
+            android:text="@string/statistics"
+            android:textColor="#95130A"
+            android:visibility="@{viewModel.wordsAvailable &gt; 0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playGameButton"
+            bind:shrinkTouchDuration="@{300L}"
+            bind:shrinkTouchEndSize="@{0.95F}" />
+
+        <Button
+            android:id="@+id/optionsButton"
+            android:layout_width="@dimen/main_menu_button_width"
+            android:layout_height="@dimen/main_menu_button_height"
+            android:layout_marginTop="@dimen/main_menu_button_margin"
+            android:background="@drawable/round_button_bg"
+            android:text="@string/options"
+            android:textColor="#95130A"
+            android:visibility="@{viewModel.wordsAvailable &gt; 0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statisticsButton"
+            bind:shrinkTouchDuration="@{300L}"
+            bind:shrinkTouchEndSize="@{0.95F}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

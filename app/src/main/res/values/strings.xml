@@ -1,0 +1,25 @@
+<resources>
+    <plurals name="time_elapsed">
+        <item quantity="zero">%1$d seconds</item>
+        <item quantity="one">%1$d second</item>
+        <item quantity="two">%1$d seconds</item>
+        <item quantity="other">%1$d seconds</item>
+    </plurals>
+    <string name="app_name">Favorit Words Sport</string>
+    <string name="play_game">Play Game</string>
+    <string name="statistics">Statistics</string>
+    <string name="confirm">Confirm</string>
+    <string name="right_answers_this_session">Right answers on this session:</string>
+    <string name="wrong_answers_this_session">Wrong answers on this session:</string>
+    <string name="time_played">Time Played</string>
+    <string name="seconds">seconds</string>
+    <string name="sessions">Sessions</string>
+    <string name="answers">Answers</string>
+    <string name="correct_total">Correct/Total</string>
+    <string name="sessions_played">sessions played</string>
+    <string name="hardest_word_guess">Hardest Word to Guess</string>
+    <string name="easiest_word_guess">Easiest Word to Guess</string>
+    <string name="options">Options</string>
+    <string name="choose_min_max_word_size">Choose the minimum and the maximum size of the words to be played:</string>
+    <string name="type_unscrambled_word">Type Unscrambled Word</string>
+</resources>
